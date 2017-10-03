@@ -169,6 +169,7 @@
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\CompanyCode.cs" />
     <Compile Include="Models\DbContent.cs" />
+    <Compile Include="Models\Rewards.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserPoints.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

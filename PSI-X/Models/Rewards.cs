@@ -1,10 +1,10 @@
 ﻿namespace PSI_X.Models
 {
-    public class UserPoints
+    public class Rewards
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
         public string CompanyName { get; set; }
-        public int UserCompanyPoints { get; set; }
+        public string RewardName { get; set; }
+        public int RequiredPoints { get; set; }
     }
 }

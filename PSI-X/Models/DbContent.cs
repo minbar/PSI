@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using PSI_X.Models;
+﻿using System.Data.Entity;
+
 namespace PSI_X.Models
 {
     public class DbContentPSI: DbContext

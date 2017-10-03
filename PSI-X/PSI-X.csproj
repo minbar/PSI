@@ -204,7 +204,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -212,12 +214,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Code.cshtml" />
-    <Content Include="Views\UsersAccount\LoggedIn.cshtml" />
-    <Content Include="Views\UsersAccount\LoggedOut.cshtml" />
-    <Content Include="Views\UsersAccount\Login.cshtml" />
-    <Content Include="Views\UsersAccount\Logout.cshtml" />
-    <Content Include="Views\UsersAccount\NotLoggedIn.cshtml" />
-    <Content Include="Views\UsersAccount\Register.cshtml" />
+    <Content Include="Views\UserAccount\LoggedIn.cshtml" />
+    <Content Include="Views\UserAccount\LoggedOut.cshtml" />
+    <Content Include="Views\UserAccount\Login.cshtml" />
+    <Content Include="Views\UserAccount\Logout.cshtml" />
+    <Content Include="Views\UserAccount\NotLoggedIn.cshtml" />
+    <Content Include="Views\UserAccount\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -165,6 +165,10 @@
     <Compile Include="Migrations\201710031818283_UpdateUserProperties.Designer.cs">
       <DependentUpon>201710031818283_UpdateUserProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710032113026_database-model.cs" />
+    <Compile Include="Migrations\201710032113026_database-model.Designer.cs">
+      <DependentUpon>201710032113026_database-model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\CompanyCode.cs" />
@@ -247,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710031818283_UpdateUserProperties.resx">
       <DependentUpon>201710031818283_UpdateUserProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710032113026_database-model.resx">
+      <DependentUpon>201710032113026_database-model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

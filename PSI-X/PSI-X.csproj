@@ -151,6 +151,7 @@
     <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\CompanyCodesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RewardsController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Controllers\UserPointsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -184,10 +185,27 @@
     <Compile Include="Migrations\201710041228391_AddKey.Designer.cs">
       <DependentUpon>201710041228391_AddKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710041800199_update.cs" />
+    <Compile Include="Migrations\201710041800199_update.Designer.cs">
+      <DependentUpon>201710041800199_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041823112_userpoints_update.cs" />
+    <Compile Include="Migrations\201710041823112_userpoints_update.Designer.cs">
+      <DependentUpon>201710041823112_userpoints_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041835505_rewards-table-added.cs" />
+    <Compile Include="Migrations\201710041835505_rewards-table-added.Designer.cs">
+      <DependentUpon>201710041835505_rewards-table-added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041840036_rewards v2.cs" />
+    <Compile Include="Migrations\201710041840036_rewards v2.Designer.cs">
+      <DependentUpon>201710041840036_rewards v2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\CompanyCode.cs" />
     <Compile Include="Models\DbContent.cs" />
+    <Compile Include="Models\Rewards.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserPoints.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -202,6 +220,10 @@
     <Compile Include="ViewModels\ListOfCompanyCodes.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\PsiDatabase.mdf" />
+    <Content Include="App_Data\PsiDatabase_log.ldf">
+      <DependentUpon>PsiDatabase.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Start\Content\bootstrap.css" />
     <Content Include="App_Start\Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -253,10 +275,9 @@
     <Content Include="Views\CompanyCodes\SaveRecord.cshtml" />
     <Content Include="Views\Companies\Show.cshtml" />
     <Content Include="Views\CompanyCodes\Show.cshtml" />
+    <Content Include="Views\Rewards\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -291,6 +312,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710041228391_AddKey.resx">
       <DependentUpon>201710041228391_AddKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041800199_update.resx">
+      <DependentUpon>201710041800199_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041823112_userpoints_update.resx">
+      <DependentUpon>201710041823112_userpoints_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041835505_rewards-table-added.resx">
+      <DependentUpon>201710041835505_rewards-table-added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041840036_rewards v2.resx">
+      <DependentUpon>201710041840036_rewards v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

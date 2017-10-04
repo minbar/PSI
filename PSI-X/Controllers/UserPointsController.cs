@@ -56,7 +56,6 @@ namespace PSI_X.Controllers
                 {
                     UserPoints points = new UserPoints()
                     {
-                        NameOfCompany = userCode.Name,
                         CompanyId = userCode.CompanyId,
                         UserId = UserId1,
                         UserCompanyPoints = userCode.Points

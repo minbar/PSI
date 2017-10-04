@@ -11,7 +11,6 @@ namespace PSI_X.Models
         public int Id { get; set; }
         public int CompanyId { get; set; }
         public string Name { get; set; } /*for what kind of product the code is created, coffee, tea... */
-        [Key]
         public int Code { get; set; }
         public int Points { get; set; }
         public IList<Company> CompaniesCodes { get; set; }

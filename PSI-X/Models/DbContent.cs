@@ -16,6 +16,7 @@ namespace PSI_X.Models
         public DbSet<CompanyCode> Codes { get; set; }
         public DbSet<User> UserAccount { get; set; }
         public DbSet<UserPoints> UserPoints { get; set; }
+        public DbSet<Rewards> Rewards { get; set; }
     
 
 

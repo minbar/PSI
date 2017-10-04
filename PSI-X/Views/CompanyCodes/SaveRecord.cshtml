@@ -1,0 +1,43 @@
+﻿@model PSI_X.ViewModels.CompanyCodeViewModel
+@{
+    ViewBag.Title = "PostCode";
+}
+
+
+<div class="container">
+    <h3 style="padding-top: 50px" >Insert new Code</h3>
+    <hr />
+    <div class="col-md-4 col-md-offset-4">
+        @using (Html.BeginForm("SaveRecord", "CompanyCodes", FormMethod.Post))
+        {
+            <label>Name</label>
+            @Html.TextBoxFor(model => model.codesForCompany.Name, new { @class = "form-control", @placeholder = "Name" })
+            <br />
+            <label>Code</label>
+            @Html.TextBoxFor(model => model.codesForCompany.Code, new { @class = "form-control", @placeholder = "Code" })
+            <br />
+            <div class="form-group">
+                
+                @try
+                {
+                    @Html.LabelFor(model => model.codesForCompany.CompanyId)
+                    @Html.DropDownListFor(m => m.codesForCompany.CompanyId, new SelectList(Model.companiesCodeView, "Id", "Name"), "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.codesForCompany.CompanyId)
+                }
+                catch (NullReferenceException e)
+                {
+
+                }
+               
+            </div>
+            <label>Points</label>
+            @Html.TextBoxFor(model => model.codesForCompany.Points, new { @class = "form-control", @placeholder = "Points" })
+            <br />
+            <input type="submit" value="Submit" class="btn btn-success" />
+        }
+    </div>
+</div>
+@if(ViewBag.Msg == "Succeeded"){
+    <p style="color: forestgreen">Succeeded</p>
+}
+

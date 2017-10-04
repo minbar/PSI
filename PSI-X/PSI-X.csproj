@@ -20,8 +20,8 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -153,7 +153,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Controllers\UserPointsController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -165,6 +164,26 @@
     <Compile Include="Migrations\201710031818283_UpdateUserProperties.Designer.cs">
       <DependentUpon>201710031818283_UpdateUserProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710040720172_UpdatesOfCompanyEntity.cs" />
+    <Compile Include="Migrations\201710040720172_UpdatesOfCompanyEntity.Designer.cs">
+      <DependentUpon>201710040720172_UpdatesOfCompanyEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040745469_FixForCompanyCode.cs" />
+    <Compile Include="Migrations\201710040745469_FixForCompanyCode.Designer.cs">
+      <DependentUpon>201710040745469_FixForCompanyCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040940592_NEW.cs" />
+    <Compile Include="Migrations\201710040940592_NEW.Designer.cs">
+      <DependentUpon>201710040940592_NEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040942594_NEW11.cs" />
+    <Compile Include="Migrations\201710040942594_NEW11.Designer.cs">
+      <DependentUpon>201710040942594_NEW11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041228391_AddKey.cs" />
+    <Compile Include="Migrations\201710041228391_AddKey.Designer.cs">
+      <DependentUpon>201710041228391_AddKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\CompanyCode.cs" />
@@ -172,7 +191,15 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserPoints.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\ViewModels\CodeViewModel.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\CodeViewModel.cs" />
+    <Compile Include="ViewModels\CompanyCodeViewModel.cs" />
+    <Compile Include="ViewModels\CompanyViewModel.cs" />
+    <Compile Include="ViewModels\ListOfCompanyCodes.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Start\Content\bootstrap.css" />
@@ -186,6 +213,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -211,19 +242,20 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Code.cshtml" />
-    <Content Include="Views\UsersAccount\LoggedIn.cshtml" />
-    <Content Include="Views\UsersAccount\LoggedOut.cshtml" />
-    <Content Include="Views\UsersAccount\Login.cshtml" />
-    <Content Include="Views\UsersAccount\Logout.cshtml" />
-    <Content Include="Views\UsersAccount\NotLoggedIn.cshtml" />
-    <Content Include="Views\UsersAccount\Register.cshtml" />
+    <Content Include="Views\UserPoints\GetPoints.cshtml" />
+    <Content Include="Views\UserAccount\LoggedIn.cshtml" />
+    <Content Include="Views\UserAccount\LoggedOut.cshtml" />
+    <Content Include="Views\UserAccount\Login.cshtml" />
+    <Content Include="Views\UserAccount\Logout.cshtml" />
+    <Content Include="Views\UserAccount\NotLoggedIn.cshtml" />
+    <Content Include="Views\UserAccount\Register.cshtml" />
+    <Content Include="Views\Companies\Post.cshtml" />
+    <Content Include="Views\CompanyCodes\SaveRecord.cshtml" />
+    <Content Include="Views\Companies\Show.cshtml" />
+    <Content Include="Views\CompanyCodes\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Companies\" />
-    <Folder Include="Views\CompanyCodes\" />
-    <Folder Include="Views\UserPoints\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -244,6 +276,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710031818283_UpdateUserProperties.resx">
       <DependentUpon>201710031818283_UpdateUserProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040720172_UpdatesOfCompanyEntity.resx">
+      <DependentUpon>201710040720172_UpdatesOfCompanyEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040745469_FixForCompanyCode.resx">
+      <DependentUpon>201710040745469_FixForCompanyCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040940592_NEW.resx">
+      <DependentUpon>201710040940592_NEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040942594_NEW11.resx">
+      <DependentUpon>201710040942594_NEW11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041228391_AddKey.resx">
+      <DependentUpon>201710041228391_AddKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

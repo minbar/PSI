@@ -9,6 +9,7 @@ namespace PSI_X.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public IList<CompanyCode> code { get; set; }
+        public string Address { get; set; }
+        public string TypeOfCompany { get; set; }
     }
 }

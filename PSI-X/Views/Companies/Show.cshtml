@@ -1,0 +1,26 @@
+﻿@model  IEnumerable<PSI_X.Models.Company>
+    @{
+        ViewBag.Title = "Show";
+    }
+
+    <h2>Show</h2>
+@foreach (var name in Model)
+{
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Type of Company</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@name.Name</td>
+                <td>@name.Address</td>
+                <td>@name.TypeOfCompany</td>
+            </tr>
+        </tbody>
+    </table>
+}
+   

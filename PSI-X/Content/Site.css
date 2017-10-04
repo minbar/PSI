@@ -1,15 +1,23 @@
-﻿
+﻿.namas {
+    height: 100%;
+    background-image: url("https://images6.alphacoders.com/366/366291.jpg");
+    background-color: #cccccc;
+    background-position: center center;
+    background-size: cover;
+    color:antiquewhite;
+}
 body {
-    background-color: darkslateblue;
+    background-color: white;
     margin: 0;
     padding: 0;
     margin-bottom: 30px;
   
-    color: antiquewhite;
+    color: darkblue;
 
 }
 
 #container {
+    margin-top: 30px;
     min-height: 100%;
     position: relative;
 }
@@ -21,14 +29,24 @@ body {
 }
 
 #footer {
-    position: fixed;
-    left: 0px;
-    bottom: 0px;
-    height: 30px;
-    width: 100%;
-    background: #1abc9c;
-}
+    background-color: darkslategrey;
+   }
 #nav {
     position: fixed;
     top: 40px;
 }
+a.namas {
+    color: antiquewhite;
+}
+
+    a.namas:active {
+        color: antiquewhite;
+    }
+
+    a.namas:link {
+        color: antiquewhite;
+    }
+
+    a.namas :visited {
+        color: antiquewhite;
+    }

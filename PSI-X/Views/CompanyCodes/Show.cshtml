@@ -1,0 +1,33 @@
+﻿@model  PSI_X.ViewModels.ListOfCompanyCodes
+@{
+    ViewBag.Title = "Show All codes of...";
+}
+
+<h2>Show</h2>
+@foreach (var kompanija in Model.companiesCodeView)
+{
+    <h3>@kompanija.Name</h3>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kodas in Model.codesForCompany)
+            {
+                <tr>
+                    @if (kompanija.Id == kodas.CompanyId)
+                    {
+                        <td>@kodas.Code </td>
+                        <td>@kodas.Name</td>
+                        <td>@kodas.Points</td>
+                    }
+                </tr>
+            }
+          
+        </tbody>
+    </table>
+  }

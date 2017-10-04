@@ -1,0 +1,25 @@
+﻿@model PSI_X.ViewModels.CodeViewModel
+@{
+    ViewBag.Title = "GetPoints";
+}
+<body class="namas">
+    <h1 style="padding-top: 50px">Welcome!</h1>
+    <h2>Input your Code down below here</h2>
+    <hr />
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            @using (Html.BeginForm("GetPoints", "UserPoints", FormMethod.Post))
+            {
+                @Html.TextBoxFor(model => model.CodeG, new { @class = "form-control", @placeholder = "Code" })
+                <br />
+                <input type="submit" value="Submit" class="btn btn-success" />
+            }
+        </div>
+    </div>
+    @if (ViewBag.Message != null && ViewBag.Message != "The code is wrong, check if the code is correct")
+    {
+        <h3 style="color: darkred">Succeeded</h3>
+    }
+    <li style="font-size: 25px; color:antiquewhite;">@Html.ActionLink("Companies Show", "Show", "Companies", null, new { @class = "namas" })</li>
+    <li style="font-size: 25px;color:antiquewhite">@Html.ActionLink("Show Points of codes", "Show", "CompanyCodes", null, new { @class = "namas" })</li>
+</body>

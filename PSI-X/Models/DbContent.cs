@@ -12,10 +12,10 @@ namespace PSI_X.Models
         {
 
         }
-        public DbSet<Company> companies { get; set; }
-        public DbSet<CompanyCode> codes { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<CompanyCode> Codes { get; set; }
         public DbSet<User> UserAccount { get; set; }
-        public DbSet<UserPoints> userPoints { get; set; }
+        public DbSet<UserPoints> UserPoints { get; set; }
     
 
 

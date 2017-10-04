@@ -16,7 +16,7 @@ namespace PSI_X
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "UserPoints", action = "GetPoints", id = UrlParameter.Optional }
             );
         }
     }

@@ -11,6 +11,7 @@ namespace PSI_X.Controllers
     public class UserAccountController : Controller
     {
         // GET: UserAccount
+        private DbContentPSI db = new DbContentPSI();
         public ActionResult Index()
         {
             return View();

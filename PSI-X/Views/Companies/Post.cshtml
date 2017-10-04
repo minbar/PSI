@@ -1,0 +1,27 @@
+﻿@model PSI_X.ViewModels.CompanyViewModel
+@{
+    ViewBag.Title = "Post";
+}
+
+
+
+<div class="container">
+    <h3 style="padding-top: 50px">Insert new Company</h3>
+    <hr />
+    <div class="col-md-4 col-md-offset-4">
+        @using (Html.BeginForm("Post", "Companies", FormMethod.Post))
+        {
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Name" })
+            <br />
+            @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Address" })
+            <br />
+            @Html.TextBoxFor(model => model.TypeOfCompany, new { @class = "form-control", @placeholder = "Type of Company" })
+            <br />
+            <input type="submit" value="Submit" class="btn btn-success" />
+        }
+    </div>
+</div>
+@if(ViewBag.RespondMsg == "Succeeded")
+{
+    <p style="color:forestgreen">Succeeded</p>
+}

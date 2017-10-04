@@ -23,17 +23,36 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Login", "Login", "UserAccount")</li>
-                    <li>@Html.ActionLink("Logout", "Logout", "UserAccount")</li>
+                    @if (Session["Id"] == null)
+                    {   
+                            <li style="background-color:darkmagenta">@Html.ActionLink("Login", "Login", "UserAccount")</li>
+                        
+                     
+                    }
+                    @if (Session["Id"] != null)
+                    {
+                        <li>@Html.ActionLink("New Company", "Post", "Companies")</li>
+                        <li>@Html.ActionLink("New Code", "PostCode", "CompanyCodes")</li>
+                        <li>@Html.ActionLink("Insert Code", "GetPoints", "UserPoints")</li>
+                        <li style="background-color:darkmagenta">@Html.ActionLink("Logout", "Logout", "UserAccount")</li>
+                    }
+                  
 
                 </ul>
+                
             </div>
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        <footer style="position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color:darkslategrey ;
+  text-align: center;">
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>

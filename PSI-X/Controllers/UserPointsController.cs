@@ -13,7 +13,7 @@ namespace PSI_X.Controllers
     public class UserPointsController : Controller
     {
         // GET: UserPoints
-       private DbContentPSI db = new DbContentPSI();
+        private DbContentPSI db = new DbContentPSI();
         public ActionResult Index()
         {
             return View();

@@ -23,9 +23,8 @@ namespace PSI_X
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      "~/Content/styles/bootstrap.css",
-                      "~/Content/styles/site.css"));
+            bundles.Add(new StyleBundle("~/bundles/css").IncludeDirectory(
+                      "~/Content/styles/", "*.css", true));
         }
     }
 }

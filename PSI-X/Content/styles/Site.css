@@ -1,20 +1,17 @@
-﻿.namas {
+﻿.home-background {
     height: 100%;
-    background-image: url("https://images6.alphacoders.com/366/366291.jpg");
-    background-color: #cccccc;
-    background-position: center center;
+    background-image: url("/Content/images/vine-bar.jpg");
     background-size: cover;
-    color:antiquewhite;
+    color: antiquewhite;
 }
-body {
+
+/*body {
     background-color: white;
     margin: 0;
     padding: 0;
     margin-bottom: 30px;
-  
     color: darkblue;
-
-}
+}*/
 
 #container {
     margin-top: 30px;

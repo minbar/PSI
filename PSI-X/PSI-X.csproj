@@ -223,15 +223,12 @@
     <Content Include="App_Data\PsiDatabase_log.ldf">
       <DependentUpon>PsiDatabase.mdf</DependentUpon>
     </Content>
-    <Content Include="App_Start\Content\bootstrap.css" />
-    <Content Include="App_Start\Content\bootstrap.min.css" />
     <Content Include="Content\styles\bootstrap.css" />
     <Content Include="Content\styles\bootstrap.min.css" />
     <Content Include="Content\styles\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="App_Start\Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

@@ -1,0 +1,24 @@
+﻿<br />
+<br />
+<br />
+@foreach (var company in Model[0].CompaniesList)
+{
+    <h3>@company.Name</h3>
+    <table class="table table-condensed">
+        <tr>
+            <th>Code name</th>
+            <th>Times used</th>
+        </tr>
+        @foreach (var code in Model)
+        {
+            if (code.CompanyName.ToString().StartsWith(company.Name.ToString()))
+            {
+                <tr>
+                    <td>@code.CodeName</td>
+                    <td>@code.TimesUsed.ToString()</td>
+                </tr>
+            }
+        }
+    </table>
+}
+

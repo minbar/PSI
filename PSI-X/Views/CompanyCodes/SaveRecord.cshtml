@@ -20,9 +20,8 @@
                 
                 @try
                 {
-                    @Html.LabelFor(model => model.codesForCompany.CompanyId)
+                    <label>Company</label>
                     @Html.DropDownListFor(m => m.codesForCompany.CompanyId, new SelectList(Model.companiesCodeView, "Id", "Name"), "", new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.codesForCompany.CompanyId)
                 }
                 catch (NullReferenceException e)
                 {
@@ -37,7 +36,12 @@
         }
     </div>
 </div>
-@if(ViewBag.Msg == "Succeeded"){
-    <p style="color: forestgreen">Succeeded</p>
+@if(ViewBag.Msg == "Succeded")
+{
+    <p align="center">New code was successfully created!</p>
+}
+@if(ViewBag.Msg == "Exact code already exists.")
+{
+    <p align="center">Exact code already exists. Please specify other code.</p>
 }
 

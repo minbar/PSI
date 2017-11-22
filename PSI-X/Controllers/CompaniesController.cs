@@ -25,26 +25,40 @@ namespace PSI_X.Controllers
         [HttpPost]
         public ActionResult Post(CompanyViewModel company)
         {
-            /*without validations yet */
-            ViewBag.RespondMsg = "";
-            Company newCompany = new Company();
-            if (ModelState.IsValid)
+            if (Session["Id"] == null)
             {
-                newCompany.Address = company.Address;
-                newCompany.TypeOfCompany = company.TypeOfCompany;
-                newCompany.Name = company.Name;
-                db.Companies.Add(newCompany);
-                db.SaveChanges();
-                ViewBag.RespondMsg = "Succeeded";
-                ModelState.Clear();
+                return RedirectToAction("Login");
             }
-            return View();
+            else
+            {
+                /*without validations yet */
+                ViewBag.RespondMsg = "";
+                Company newCompany = new Company();
+                if (ModelState.IsValid)
+                {
+                    newCompany.Address = company.Address;
+                    newCompany.TypeOfCompany = company.TypeOfCompany;
+                    newCompany.Name = company.Name;
+                    db.Companies.Add(newCompany);
+                    db.SaveChanges();
+                    ViewBag.RespondMsg = "Succeeded";
+                    ModelState.Clear();
+                }
+                return View();
+            }
         }
         public ActionResult Show()
         {
-            IEnumerable<Company> comp = db.Companies.ToList();
-
-            return View(comp);
+            if (Session["Id"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                IEnumerable<Company> comp = db.Companies.ToList();
+                return View(comp);
+            }
+            
         }
     }
 }

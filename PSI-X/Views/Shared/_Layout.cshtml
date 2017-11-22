@@ -22,14 +22,19 @@
                     <ul class="nav navbar-nav">
                         @if (Session["Id"] == null)
                         {   
-                            <li style="background-color:darkmagenta">@Html.ActionLink("Login", "Login", "UserAccount")</li>
+                            <li>@Html.ActionLink("REGISTER", "Register", "UserAccount")</li>
+                            <li>@Html.ActionLink("LOGIN", "Login", "UserAccount")</li>
                         }
                         @if (Session["Id"] != null)
                         {
-                            <li>@Html.ActionLink("New Company", "Post", "Companies")</li>
-                            <li>@Html.ActionLink("New Code", "PostCode", "CompanyCodes")</li>
-                            <li>@Html.ActionLink("Insert Code", "GetPoints", "UserPoints")</li>
-                            <li style="background-color:darkmagenta">@Html.ActionLink("Logout", "Logout", "UserAccount")</li>
+                            <li>@Html.ActionLink("CODES USAGE", "CodesUsage", "CompanyCodes")</li>
+                            <li>@Html.ActionLink("NEW COMPANY", "Post", "Companies")</li>
+                            <li>@Html.ActionLink("NEW CODE", "PostCode", "CompanyCodes")</li>
+                            <li>@Html.ActionLink("NEW REWARD", "NewReward", "Rewards")</li>
+                            <li>@Html.ActionLink("INSERT CODE", "GetPoints", "UserPoints")</li>
+                            <li>@Html.ActionLink("ALL REWARDS", "AllRewards", "Rewards")</li>
+                            <li>@Html.ActionLink("AVAILABLE REWARDS", "Index", "Rewards")</li>
+                            <li style="float:right">@Html.ActionLink("LOGOUT", "Logout", "UserAccount")</li>
                         }
                     </ul>
                 </div>

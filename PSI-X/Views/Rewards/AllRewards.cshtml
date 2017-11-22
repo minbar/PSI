@@ -1,0 +1,19 @@
+﻿<br />
+<br />
+<br />
+<h2>All rewards</h2>
+<table class="table table-condensed">
+    <tr>
+        <th>Company name</th>
+        <th>Reward</th>
+        <th>Required points</th>
+    </tr>
+    @foreach (var reward in Model)
+    {
+        <tr>   
+            <td>@reward.CompanyName</td>
+            <td>@reward.RewardName</td>
+            <td>@reward.RequiredPoints</td>    
+        </tr>
+    }
+</table>

@@ -2,10 +2,9 @@
     @{
         ViewBag.Title = "Show";
     }
-
-    <h2>Show</h2>
-@foreach (var name in Model)
-{
+    <br />
+    <br />
+    <br />
     <table class="table table-condensed">
         <thead>
             <tr>
@@ -15,12 +14,14 @@
             </tr>
         </thead>
         <tbody>
+        @foreach (var name in Model)
+        {
             <tr>
                 <td>@name.Name</td>
                 <td>@name.Address</td>
                 <td>@name.TypeOfCompany</td>
             </tr>
+        }
         </tbody>
     </table>
-}
    

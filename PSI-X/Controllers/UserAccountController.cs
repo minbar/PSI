@@ -34,6 +34,7 @@ namespace PSI_X.Controllers
                 }
                 ModelState.Clear();
 
+                ViewBag.Registered = 1;
                 ViewBag.Message = account.FirstName + " " + account.LastName + " Successfully registered.";
             }
             return View();
@@ -48,41 +49,50 @@ namespace PSI_X.Controllers
             }
             else
             {
-                return View("LoggedIn");
+                return View("Home");
             }
         }
         [HttpPost]
         public ActionResult Login(User user)
         {
-            using (DbContentPSI db = new DbContentPSI())
+            if (user.Username == null || user.Password == null)
             {
-                User usr = null;
-                try
-                {
-                    usr = db.UserAccount.SingleOrDefault(u => u.Username == user.Username && u.Password == user.Password);
-                }
-                catch (Exception e)
-                {
-                    Console.Write(e.StackTrace);
-                }
-
-                if (usr != null)
-                {
-                    Session["Id"] = usr.Id.ToString();
-                    Session["Username"] = usr.Username.ToString();
-                    FormsAuthentication.SetAuthCookie(usr.Username, false);
-                    return View("LoggedIn");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Username or Password is wrong.");
-                }
-
+                ModelState.AddModelError("", "Please fill both fields.");
             }
+
+            else
+            {
+                using (DbContentPSI db = new DbContentPSI())
+                {
+                    User usr = null;
+                    try
+                    {
+                        usr = db.UserAccount.SingleOrDefault(u => u.Username == user.Username && u.Password == user.Password);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Write(e.StackTrace);
+                    }
+
+                    if (usr != null)
+                    {
+                        Session["Id"] = usr.Id.ToString();
+                        Session["Username"] = usr.Username.ToString();
+                        FormsAuthentication.SetAuthCookie(usr.Username, false);
+                        return View("Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Username or password is not valid.");
+                    }
+
+                }
+            }
+
             return View();
         }
 
-        public ActionResult LoggedIn()
+        public ActionResult Home()
         {
             if (Session["Id"] != null)
             {
@@ -102,7 +112,7 @@ namespace PSI_X.Controllers
             }
             else
             {
-                return View("NotLoggedIn");
+                return View("Login");
             }
         }
 
@@ -112,13 +122,7 @@ namespace PSI_X.Controllers
             FormsAuthentication.SignOut();
             Session["Id"] = null;
             Session["Username"] = null;
-            return View("Loggedout");
+            return RedirectToAction("Login");
         }
-
-        public ActionResult NotLoggedIn()
-        {
-            return View();
-        }
-
     }
 }

@@ -26,10 +26,6 @@ namespace PSI_X.Controllers
         [HttpPost]
         public ActionResult GetPoints(CodeViewModel code)
         {
-            /*Check if the code is correct and exist */
-            /*  var codes = from s in db.Codes
-                          where db.Codes.Code = code.Code
-                          select s;*/
             ViewBag.Message = "";
             CompanyCode userCode = null;
             IEnumerable<CompanyCode> list = db.Codes.ToList();
@@ -37,7 +33,7 @@ namespace PSI_X.Controllers
             {
                 if (code.CodeG == kodas.Code)
                 {
-                    userCode = kodas; /*Did find the code in db */
+                    userCode = kodas; // Did find the code in db
                     break;
                 }
             }
@@ -48,6 +44,10 @@ namespace PSI_X.Controllers
                 string k = Session["Id"].ToString();
                 UserId1 = int.Parse(k);
                 UserId1 = Convert.ToInt32(k);
+
+                var company = db.Companies
+                                .Where(c => c.Id == userCode.CompanyId)
+                                .FirstOrDefault();
 
                 var ifHasCompany = db.UserPoints.FirstOrDefault(m => m.UserId == UserId1
                 && m.CompanyId == userCode.CompanyId);
@@ -60,21 +60,25 @@ namespace PSI_X.Controllers
                         UserId = UserId1,
                         UserCompanyPoints = userCode.Points
                     };
+                    userCode.TimesUsed++;
+                    db.Codes.Attach(userCode);
+                    var entry = db.Entry(userCode);
+                    entry.Property(p => p.TimesUsed).IsModified = true;
                     db.UserPoints.Add(points);
                     db.SaveChanges();
-                    ViewBag.Message = string.Format("You just got the {0} points", userCode.Points);
+                    ViewBag.Message = string.Format("You just got the {0} points in {1}!", userCode.Points, company.Name);
                     ModelState.Clear();
                 }
                 else
                 {
                     ifHasCompany.UserCompanyPoints += userCode.Points;
                     db.SaveChanges();
-                    ViewBag.Message = string.Format("You just got the {0} points", userCode.Points);
+                    ViewBag.Message = string.Format("You just got the {0} points in {1}!", userCode.Points, company.Name);
                 }
             }
             else
             {
-                ViewBag.Message = "The code is wrong, check if the code is correct";
+                ViewBag.Message = "The code is not valid!";
                 return View();
             }
            

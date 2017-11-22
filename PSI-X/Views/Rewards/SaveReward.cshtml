@@ -1,0 +1,32 @@
+﻿@model PSI_X.ViewModels.RewardAddViewModel
+
+<div class="container">
+    <h3 style="padding-top: 50px">Create new reward</h3>
+    <hr />
+    <div class="col-md-4 col-md-offset-4">
+        @using (Html.BeginForm("SaveReward", "Rewards", FormMethod.Post))
+        {
+            <div class="form-group">
+
+                @try
+                {
+                    <label>Company</label>
+                    @Html.DropDownListFor(m => m.reward.CompanyId, new SelectList(Model.companies, "Id", "Name"), "", new { @class = "form-control" })
+                }
+                catch (NullReferenceException e)
+                {
+
+                }
+
+            </div>
+            <label>Name</label>
+            @Html.TextBoxFor(model => model.reward.RewardName, new { @class = "form-control", placeholder = "Name" })
+            <br />
+            <label>Required Points</label>
+            @Html.TextBoxFor(model => model.reward.RequiredPoints, new { @class = "form-control", @placeholder = "Points" })
+            <br />
+            <br />
+            <input type="submit" value="Submit" class="btn btn-success" />
+        }
+    </div>
+</div>

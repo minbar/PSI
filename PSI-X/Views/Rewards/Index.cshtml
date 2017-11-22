@@ -1,9 +1,17 @@
-﻿@model List<string>
-@{
-    ViewBag.Title = "Index";
-}
-<h2>Index</h2>
-@foreach(var reward in Model)
-{
-    <p>@reward</p>
-}
+﻿<br />
+<br />
+<br />
+<h2>Available rewards</h2>
+<table class="table table-condensed">
+    <tr>
+        <th>Company name</th>
+        <th>Reward</th>
+    </tr>
+    @foreach (var reward in Model)
+    {
+        <tr>
+            <td>@reward.companyName</td>
+            <td>@reward.rewardName</td>
+        </tr>
+    }
+</table>

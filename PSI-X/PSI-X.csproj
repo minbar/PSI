@@ -150,6 +150,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\CompanyCodesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RewardsController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Controllers\UserPointsController.cs" />
@@ -200,6 +201,10 @@
     <Compile Include="Migrations\201710041840036_rewards v2.Designer.cs">
       <DependentUpon>201710041840036_rewards v2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711221814263_new.cs" />
+    <Compile Include="Migrations\201711221814263_new.Designer.cs">
+      <DependentUpon>201711221814263_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\CompanyCode.cs" />
@@ -213,10 +218,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\RewardAddViewModel.cs" />
+    <Compile Include="ViewModels\RewardsViewModel.cs" />
     <Compile Include="ViewModels\CodeViewModel.cs" />
     <Compile Include="ViewModels\CompanyCodeViewModel.cs" />
     <Compile Include="ViewModels\CompanyViewModel.cs" />
     <Compile Include="ViewModels\ListOfCompanyCodes.cs" />
+    <Compile Include="ViewModels\UsageViewModel.cs" />
+    <Compile Include="ViewModels\UserRewardsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\PsiDatabase.mdf" />
@@ -261,17 +270,20 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\UserPoints\GetPoints.cshtml" />
-    <Content Include="Views\UserAccount\LoggedIn.cshtml" />
-    <Content Include="Views\UserAccount\LoggedOut.cshtml" />
+    <Content Include="Views\UserAccount\Home.cshtml" />
     <Content Include="Views\UserAccount\Login.cshtml" />
     <Content Include="Views\UserAccount\Logout.cshtml" />
-    <Content Include="Views\UserAccount\NotLoggedIn.cshtml" />
     <Content Include="Views\UserAccount\Register.cshtml" />
     <Content Include="Views\Companies\Post.cshtml" />
     <Content Include="Views\CompanyCodes\SaveRecord.cshtml" />
     <Content Include="Views\Companies\Show.cshtml" />
     <Content Include="Views\CompanyCodes\Show.cshtml" />
     <Content Include="Views\Rewards\Index.cshtml" />
+    <Content Include="Views\CompanyCodes\Result.cshtml" />
+    <Content Include="Views\Rewards\AllRewards.cshtml" />
+    <Content Include="Views\Rewards\Result.cshtml" />
+    <Content Include="Views\Rewards\SaveReward.cshtml" />
+    <Content Include="Views\CompanyCodes\CodesUsage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\" />
@@ -322,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710041840036_rewards v2.resx">
       <DependentUpon>201710041840036_rewards v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711221814263_new.resx">
+      <DependentUpon>201711221814263_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
